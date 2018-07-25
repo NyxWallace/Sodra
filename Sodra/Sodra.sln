@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sodra.SqlClient", "Sodra.SqlClient\Sodra.SqlClient.csproj", "{60F370FB-BCE8-4787-8195-88641468B1D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sodra.FrontEnd", "Sodra.FrontEnd\Sodra.FrontEnd.csproj", "{2B5AB20B-5227-417C-A316-8701EEFC6EB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sodra.DTO", "Sodra.DTO\Sodra.DTO.csproj", "{B0D5694C-0478-4ED3-A6F7-29EF98714A42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sodra.Web.Services", "Sodra.Web.Services\Sodra.Web.Services.csproj", "{BB70939A-B4A0-41DF-97E3-D4894403E631}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60F370FB-BCE8-4787-8195-88641468B1D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60F370FB-BCE8-4787-8195-88641468B1D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60F370FB-BCE8-4787-8195-88641468B1D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60F370FB-BCE8-4787-8195-88641468B1D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B5AB20B-5227-417C-A316-8701EEFC6EB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B5AB20B-5227-417C-A316-8701EEFC6EB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B5AB20B-5227-417C-A316-8701EEFC6EB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B5AB20B-5227-417C-A316-8701EEFC6EB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0D5694C-0478-4ED3-A6F7-29EF98714A42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0D5694C-0478-4ED3-A6F7-29EF98714A42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0D5694C-0478-4ED3-A6F7-29EF98714A42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0D5694C-0478-4ED3-A6F7-29EF98714A42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB70939A-B4A0-41DF-97E3-D4894403E631}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB70939A-B4A0-41DF-97E3-D4894403E631}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB70939A-B4A0-41DF-97E3-D4894403E631}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB70939A-B4A0-41DF-97E3-D4894403E631}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://antoinefarine.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Sodra.SqlClient\\Sodra.SqlClient.csproj
+		SccProjectName1 = Sodra.SqlClient
+		SccLocalPath1 = Sodra.SqlClient
+		SccProjectUniqueName2 = Sodra.FrontEnd\\Sodra.FrontEnd.csproj
+		SccProjectName2 = Sodra.FrontEnd
+		SccLocalPath2 = Sodra.FrontEnd
+		SccProjectUniqueName3 = Sodra.DTO\\Sodra.DTO.csproj
+		SccProjectName3 = Sodra.DTO
+		SccLocalPath3 = Sodra.DTO
+		SccProjectUniqueName4 = Sodra.Web.Services\\Sodra.Web.Services.csproj
+		SccProjectName4 = Sodra.Web.Services
+		SccLocalPath4 = Sodra.Web.Services
+	EndGlobalSection
+EndGlobal

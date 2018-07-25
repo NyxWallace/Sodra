@@ -1,0 +1,179 @@
+﻿<Window x:Class="Sodra.FrontEnd.SessionView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sodra.FrontEnd"
+        mc:Ignorable="d"
+        Title="Session" Height="791" Width="1080"
+        Background="Black" Loaded="Start_timer"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key="EpicStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Foreground" Value="Goldenrod"/>
+            <Setter Property="FontFamily" Value="Constantia Bold Italic"/>
+        </Style>
+        <Style x:Key="EpicTextBoxStyle" TargetType="TextBox">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Foreground" Value="Goldenrod"/>
+            <Setter Property="FontFamily" Value="Constantia Bold Italic"/>
+        </Style>
+        <Style x:Key="EpicLogStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontFamily" Value="Constantia Bold Italic"/>
+        </Style>
+        <Style x:Key="UITextBoxStyle" TargetType="TextBox">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontFamily" Value="Constantia Bold Italic"/>
+            <Setter Property="Opacity" Value="0.5"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Border BorderBrush="Black" BorderThickness="2,2,1,1" Grid.Column="0">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="4*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" DataContext="{Binding Character}" HorizontalAlignment="Center">
+                        <Grid MaxWidth="300">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.3*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="0.3*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding ImagePath}" Grid.Column="1" />
+                            <Image Source="Resources/Frame.png" Grid.Column="0"  Grid.ColumnSpan="3" />
+                        </Grid>
+                        <StackPanel x:Name="editCharacterInformation">
+                            <TextBlock Text="{Binding Name}" Margin="2" HorizontalAlignment="Stretch" Style="{StaticResource EpicStyle}"/>
+                            <TextBlock Text="{Binding Class}" Margin="2" HorizontalAlignment="Stretch" Style="{StaticResource EpicStyle}"/>
+                            <TextBlock Text="{Binding Race}" Margin="2" HorizontalAlignment="Stretch" Style="{StaticResource EpicStyle}"/>
+                            <Button Width="16" HorizontalAlignment="Right" Background="Transparent" Click="Edit_character" BorderThickness="0" Focusable="False">
+                                <Image Source="Resources/Icons/Edit16.png"/>
+                            </Button>
+                        </StackPanel>
+                        <Grid Margin="0,100,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.5*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="HP" Style="{StaticResource EpicStyle}" Margin="2" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="charHealth" Grid.Column="2" Text="{Binding CharacterHealth, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewTextInput="NumberValidationTextBox" Style="{StaticResource EpicStyle}" Margin="2"/>
+                            <Button Grid.Column="1" Margin="2" Click="Add_HP" VerticalAlignment="Center">+</Button>
+                            <Button Grid.Column="3" Margin="2" Click="Sub_HP" VerticalAlignment="Center">-</Button>
+                        </Grid>
+                    </StackPanel>
+                    <!--<Button Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" BorderThickness="0">
+                        <Image Source="Resources/Icons/Delete32.png" Width="32"/>
+                    </Button>-->
+                </Grid>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1,2,1,1" Grid.Column="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="8*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="8*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.Background>
+                        <ImageBrush ImageSource="Resources/Background.jpg"/>
+                    </Grid.Background>
+                    <!--<Border Grid.Column="2" ToolTip="{Binding SessionID}" >
+                        <Image Source="Resources/Icons/QuestionMark32.png" Width="32"/>
+                    </Border>-->
+                    <StackPanel Grid.ColumnSpan="3" Orientation="Horizontal">
+                        <TextBlock Text="{Binding SessionName}" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="36" Foreground="Goldenrod" FontFamily="Constantia Bold Italic" />
+                        <Button Width="32" VerticalAlignment="Center" Margin="20,0,0,0" HorizontalAlignment="Right" Background="Transparent" Click="Edit_session_name" BorderThickness="0" Focusable="False">
+                            <Image Source="Resources/Icons/Edit32.png"/>
+                        </Button>
+                    </StackPanel>
+                    <TextBlock Grid.ColumnSpan="3" Text="{Binding SessionID}" Margin="0,0,5,0" FontSize="36" Foreground="Goldenrod" FontFamily="Constantia Bold Italic" HorizontalAlignment="Right"/>
+                    <ListView x:Name="logs_list" Grid.Column="1" Grid.Row="1" Background="Transparent" ItemsSource="{Binding Logs}" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Focusable" Value="false"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="Black" BorderThickness="0">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="60"/>
+                                            <ColumnDefinition Width="80"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock Grid.Column="0" Margin="2" Text="{Binding Time}" Style="{StaticResource EpicLogStyle}" TextWrapping="Wrap"/>
+                                        <TextBlock Grid.Column="1" Margin="2" Text="{Binding Character.Name}" Style="{StaticResource EpicLogStyle}" TextWrapping="Wrap"/>
+                                        <TextBlock Grid.Column="2" Margin="2" Text="{Binding Message}" Style="{StaticResource EpicLogStyle}" TextWrapping="Wrap"/>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1,2,2,1" Grid.Column="2">
+                <ListView ItemsSource="{Binding Characters}" Background="Transparent" BorderThickness="0" VerticalAlignment="Top" PreviewMouseLeftButtonUp="list_SelectionChanged">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" Style="{StaticResource EpicStyle}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Border>
+        </Grid>
+        <Border BorderBrush="Black" BorderThickness="2,1,2,2" Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="textBox" Grid.Column="0" Text="{Binding Message, Mode=TwoWay}" Margin="10" Padding="10" TextWrapping="Wrap" Style="{StaticResource UITextBoxStyle}"/>
+                <Button Grid.Column="1" Click="Add_message" Margin="10" IsDefault="True">
+                    <TextBlock Text="Send" FontSize="28" FontWeight="Bold"/>
+                </Button>
+                <Grid Grid.Column="2" Margin="0,10,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource EpicStyle}" Text="D"/>
+                    <TextBox Text="{Binding Dice}" Padding="5" Grid.Column="1" Margin="2" PreviewTextInput="NumberValidationTextBox" Style="{StaticResource UITextBoxStyle}"/>
+                    <TextBlock Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource EpicStyle}" Text="#"/>
+                    <TextBox Text="{Binding DiceNumber}" Padding="5" Grid.Row="1" Grid.Column="1" Margin="2" PreviewTextInput="NumberValidationTextBox" Style="{StaticResource UITextBoxStyle}"/>
+                </Grid>
+                <Button Grid.Column="3" Click="Roll_dice" Margin="10">
+                    <TextBlock Text="Roll" FontSize="28" FontWeight="Bold"/>
+                </Button>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
